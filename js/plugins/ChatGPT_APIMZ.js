@@ -518,6 +518,7 @@
 				//console.log(customMemoryMessage);
 
 				if (!response.ok) {
+					console.log("NG")
 					const errorText = await response.text();
 					const errorJson = JSON.parse(errorText);
 					let errorMessage = String(errorJson.error.message).slice(0, 30);
@@ -528,6 +529,8 @@
 					unlockControlsIfNeeded();
 					return;
 				}
+				console.log("OK")
+
 
 				// イベント実行
 				const reader = response.body.getReader();
